@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-12 mt-5">
+            <form action="/" method="post">
+                <div class="input-group flex-fill">
+                    <input type="text" required name="url" value="" placeholder="Shorten your link"
+                           class="form-control form-control-lg" id="url-input">
+                    <div class="input-group-btn">
+                        <input type="submit" class="btn btn-success btn-lg ml-3 mb-2" value="Shorten">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 mt-5">
+            {% if short_url %}
+            <p>This is your short url: <a href="{{short_url}}">{{short_url}}</a></p>
+            {% if views %}
+            <p>Viewed: {{views}} times</p>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
